@@ -1,0 +1,31 @@
+{
+  "name": "personal_development_gulp_template",
+  "version": "1.0.0",
+  "description": "A Gulp template for a front end development enviroment.",
+  "main": "",
+  "scripts": {
+    "test": "I love Cerebella's hat Vice Versa!"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "Colin Birdwell, http://www.webbybirdwell.com/",
+  "license": "MIT",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "http://www.webbybirdwell.com/",
+  "devDependencies": {
+    "browser-sync": "^2.18.2",
+    "del": "^2.2.2",
+    "gulp": "^3.8.11",
+    "gulp-concat": "^2.6.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.9.1",
+    "gulp-uglify": "^2.0.0",
+    "gulp-util": "^3.0.7"
+  }
+}
