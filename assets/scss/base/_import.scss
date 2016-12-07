@@ -1,8 +1,8 @@
 // ==========================================================================
-// Production Imports
+// Base Imports
 // ==========================================================================
 
-@import 'base/import';
-@import 'template/import';
-@import 'components/import';
-@import 'pages/import';
+@import 'resets';
+@import 'variables';
+@import 'extensions';
+@import 'mixins';

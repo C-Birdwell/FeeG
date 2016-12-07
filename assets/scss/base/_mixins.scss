@@ -1,0 +1,55 @@
+// Structure 
+
+@mixin margin-auto($mx-wdth, $mgn-top:0px, $mgn-btm: 0px, $mn-wdth:null){
+	margin: 0 auto 0 auto;
+  	max-width: $mx-wdth;
+  	min-width: $mn-wdth;
+  	display: block; 
+}
+
+// Text
+
+@mixin font-face($family, $file){
+	@font-face {
+	  font-family: $family;
+	  src: url('#{$file}-webfont.eot');
+	  src: url('#{$file}-webfont.eot?#iefix') format('embedded-opentype'),
+	       url('#{$file}-webfont.woff') format('woff'),
+	       url('#{$file}-webfont.ttf') format('truetype');
+	}
+}
+
+@mixin text($fnt-sz:inherit, $color:null, $margin: null, $align:left, $l-hgt:1.5, $fnt-wght: 300, $txt-trans:null){
+	font-size: $fnt-sz;
+  	color: $color;
+  	margin-bottom: $margin;
+  	text-align: $align; 
+  	line-height: $l-hgt;
+  	font-weight: $fnt-wght;
+  	text-transform: $txt-trans;
+ }
+
+// Backgrounds
+
+@mixin background-fancy($img-path :null, $bkg-clr:null, $bg-fix:null, $gry-scl: 0%, $blur:0px){
+	position: relative;
+  	overflow: hidden;
+  	background-color: $bkg-clr; 
+  	&::before {
+	    content: "";
+	    background-image: url("#{$img-path}");
+	    -webkit-background-size: cover;
+  		-moz-background-size: cover;
+  		-o-background-size: cover;
+  		background-size: cover;
+	    background-attachment: $bg-fix;
+	    width: 102%;
+	    height: 106%;
+	    display: block;
+	    position: absolute;
+	    z-index: -1;
+	    -webkit-filter:grayscale($gry-scl) blur($blur);
+	    filter:grayscale($gry-scl) blur($blur);
+	    top: -5%; 
+	}
+}
