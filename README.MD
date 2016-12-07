@@ -1,3 +1,8 @@
+FeeG
+Front end environment Gulp
+
+
+
 *** Quick Start Notes ***
 	* Instructions are written for Microsoft 10 using Git Bash (shouldn't be to much difference on other systems)
 	* Requires Sass to be installed on machine
