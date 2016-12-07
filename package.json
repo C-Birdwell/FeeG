@@ -1,10 +1,10 @@
 {
-  "name": "personal_development_gulp_template",
-  "version": "1.0.0",
-  "description": "A Gulp template for a front end development enviroment.",
+  "name": "feeg",
+  "version": "1.0.1",
+  "description": "FeeG A Gulp template for a front end development enviroment.",
   "main": "",
   "scripts": {
-    "test": "I love Cerebella's hat Vice Versa!"
+    "test": ""
   },
   "repository": {
     "type": "git",
