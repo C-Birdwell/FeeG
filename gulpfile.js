@@ -8,6 +8,7 @@ var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var sass = require('gulp-sass');
 var maps = require ('gulp-sourcemaps');
+var cleanCSS = require('gulp-clean-css');
 var del = require ('del');
 var gutil = require('gulp-util');
 var plumber = require('gulp-plumber');
@@ -63,8 +64,16 @@ gulp.task('compileSass', function(){
 	.on('error', console.error.bind(console))
 	// Creates a map for developer tools in the browser for debugging
 	.pipe(maps.write('./'))
+	
 	// Destination folder for compiled css
 	.pipe(gulp.dest('assets/css'));
+});
+
+gulp.task('minify-css', ['compileSass'], function() {
+  return gulp.src('assets/css/styles.css')
+    .pipe(cleanCSS({compatibility: 'ie8'}))
+    .pipe(rename('styles.min.css'))
+    .pipe(gulp.dest('assets/css'));
 });
 
 // Live reload for compiled Sass
@@ -93,12 +102,12 @@ gulp.task('watchFiles', function(){
 
 // Deletes all previously saved css and js files in the 'dist' folder 
 gulp.task('clean', function(){
-	del(['dist','assets/css/application.css*', 'assets/js/app*.js*']);
+	del(['dist','assets/css/styles*css*', 'assets/js/app*.js*']);
 });
 
 // Builds site for production 
-gulp.task('build', ['minifyScripts','compileSass'], function(){
-	return gulp.src(['assets/css/styles.css', 'assets/js/app.min.js', '*.html', 'assets/images/**', 'assets/fonts/**'], { base: './'})
+gulp.task('build', ['minifyScripts','minify-css'], function(){
+	return gulp.src(['assets/css/styles.min.css', 'assets/js/app.min.js', '*.html', 'assets/images/**', 'assets/fonts/**'], { base: './'})
 	// Places new files in 'dist' folder
 	.pipe(gulp.dest('dist'));
 });
@@ -106,6 +115,11 @@ gulp.task('build', ['minifyScripts','compileSass'], function(){
 // Start command that just watches files for development 
 	//* right now placeholder for adding more tasks to array
 gulp.task('start', ['watchFiles']);
+
+// Deletes all previously saved files and builds site for production
+gulp.task('publish', ['clean'], function(){
+	gulp.start('build');
+});
 
 // Deletes all previously saved files and builds site for production
 gulp.task('default', ['clean'], function(){

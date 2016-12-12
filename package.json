@@ -20,6 +20,7 @@
     "browser-sync": "^2.18.2",
     "del": "^2.2.2",
     "gulp": "^3.8.11",
+    "gulp-clean-css": "^2.2.1",
     "gulp-concat": "^2.6.1",
     "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.2",
