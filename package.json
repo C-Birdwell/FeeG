@@ -1,6 +1,6 @@
 {
   "name": "feeg",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "FeeG A Gulp template for a front end development enviroment.",
   "main": "",
   "scripts": {
@@ -13,7 +13,7 @@
   "author": "Colin Birdwell, http://www.webbybirdwell.com/",
   "license": "MIT",
   "bugs": {
-    "url": ""
+    "url": "https://github.com/C-Birdwell/FeeG"
   },
   "homepage": "http://www.webbybirdwell.com/",
   "devDependencies": {

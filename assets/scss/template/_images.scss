@@ -1,1 +1,3 @@
-img{display:block;max-width:100%;width:initial;}
+img{
+	@extend	%image-default;
+}

@@ -20,7 +20,7 @@ Front end environment Gulp
 3. Starting Development Enviroment (what you actually wanted to read)
 	A. For "deving" out and file changes, enter from your command line < gulp start >
 		I. This will open a new window
-	B. When your ready for files to be compiled for production < gulp default >
+	B. When your ready for files to be compiled for production < gulp publish >
 
 4. File Structure 
 	A. If you didn't install/download this from GitHub you can just create the directory structure here

@@ -64,15 +64,19 @@ gulp.task('compileSass', function(){
 	.on('error', console.error.bind(console))
 	// Creates a map for developer tools in the browser for debugging
 	.pipe(maps.write('./'))
-	
 	// Destination folder for compiled css
 	.pipe(gulp.dest('assets/css'));
 });
 
+// Minifies the now compiled css into a new file styles.min.css
 gulp.task('minify-css', ['compileSass'], function() {
-  return gulp.src('assets/css/styles.css')
+	// Location of the main CSS file you want to minify
+	return gulp.src('assets/css/styles.css')
+	// Runs compatablity 
     .pipe(cleanCSS({compatibility: 'ie8'}))
+    // Creates new styles.min.css file
     .pipe(rename('styles.min.css'))
+    // Destination folder for compiled css
     .pipe(gulp.dest('assets/css'));
 });
 
@@ -107,6 +111,7 @@ gulp.task('clean', function(){
 
 // Builds site for production 
 gulp.task('build', ['minifyScripts','minify-css'], function(){
+	// Adds the following files to be sent to the 'dist' folder
 	return gulp.src(['assets/css/styles.min.css', 'assets/js/app.min.js', '*.html', 'assets/images/**', 'assets/fonts/**'], { base: './'})
 	// Places new files in 'dist' folder
 	.pipe(gulp.dest('dist'));
@@ -121,7 +126,5 @@ gulp.task('publish', ['clean'], function(){
 	gulp.start('build');
 });
 
-// Deletes all previously saved files and builds site for production
-gulp.task('default', ['clean'], function(){
-	gulp.start('build');
+gulp.task('default',  function(){
 });
